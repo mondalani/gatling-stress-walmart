@@ -10,6 +10,6 @@ build
 .project
 .classpath
 .cache-tests
-results/
-logs/
-data/
+/results/
+/logs/
+/data/
