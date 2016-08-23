@@ -1,0 +1,44 @@
+apply plugin: 'scala'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+
+group = theGroup
+version = theVersion
+sourceCompatibility = theSourceCompatibility
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'http://repository.excilys.com/content/groups/public'
+    }
+}
+
+dependencies {
+    compile group: 'org.scala-lang', name: 'scala-library', version: '2.11.8'
+    compile fileTree(dir: 'lib', includes: ['*.jar'])
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.10'
+}
+
+jar {
+
+    baseName = theName
+    version =  theVersion
+
+    from(configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }) {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+
+    manifest {
+        attributes 'Implementation-Title': theName,
+                'Implementation-Version': theVersion,
+                'Built-By': System.getProperty('user.name'),
+                'Built-Date': new Date(),
+                'Built-JDK': System.getProperty('java.version'),
+                'Main-Class': 'io.gatling.app.Gatling'
+    }
+}

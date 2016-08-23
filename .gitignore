@@ -1,0 +1,15 @@
+build
+*.iml
+*.ipr
+*.iws
+.DS_Store
+.gradle
+/bin/
+.settings/
+.idea/
+.project
+.classpath
+.cache-tests
+results/
+logs/
+data/
