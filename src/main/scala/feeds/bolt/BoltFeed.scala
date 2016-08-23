@@ -1,7 +1,8 @@
 package feeds.bolt
 
 import com.github.javafaker.Faker
-import feeds.bolt.data.{BoltFakedData, WhoAmIFakedData}
+import feeds.bolt.data.BoltFakedData
+import feeds.bolt.data.WhoAmIFakedData
 import org.slf4j.LoggerFactory
 
 import scala.util.Random
