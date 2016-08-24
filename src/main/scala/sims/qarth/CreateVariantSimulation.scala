@@ -1,7 +1,6 @@
 package sims.qarth
 
 import actions.qarth.QarthActions
-import com.typesafe.config.Config
 import core.BaseSimulation
 import feeds.qarth.QarthFeed
 import io.gatling.core.Predef._
